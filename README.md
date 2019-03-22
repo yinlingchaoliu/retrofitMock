@@ -1,21 +1,29 @@
-# retrofit-mock
-#### 前言
-retrofit作为网络核心框架，作为基础库，
 
-针对retrofit有很多定制，并不会有很多机会
+####导航
+[1、retrofit-mock用法](https://www.jianshu.com/p/52df6aa67a5f)
+[2、retrofit-mock编写思路(aop)](https://www.jianshu.com/p/9ef526b30b9c)
+[3 、retrofit-mock的动态代理及注解](https://www.jianshu.com/p/48fa1ad00084)
+4、aspect 原理讲解与注解语法 
 
-显式封装调用，所以开发一款无入侵式mock工具。
+#####1、前言
+retrofit作为网络核心框架，作为基础库。
+针对retrofit有很多封装，并不会有很多机会，稳定项目进行二次封装，添加mock代码，这样会造成程序的整体不稳定，增加测试难度，通常如下：
+```
+var api = createMocker(service, retrofit) 
+```
+所以需要开发一款无入侵式mock工具，随时挂载mock和卸载mock的框架
 
-支持http mock
+目前retrofit-mock框架功能
+```
+1、mock框架无入侵式注入，不需要修改原有网络代码
+2、mock框架正式生产包，不会有效率影响
+3、支持注解配置，不需要额外代码，生产代码与测试代码一致
+4、支持http，本地json，同时兼容适配retrofit2.5.0版本
+```
 
-支持本地assets mock
-
-http mock适配retrofit2.5.0版本（因retrofit重构，重写了反射） 
-
-##### 1、引用retrofit-mock库
+#####2、retrofit-mock用法
 
 * 1、用法
-
 ```
 /**
  * MOCK 有两种写法
@@ -40,11 +48,11 @@ enable 是当前接口是否mock的开关
 为了便于易用
 ```
 //RetrofitMock 是mock的所有接口的总开关
-        RetrofitMock.setEnabled( true ); 
+RetrofitMock.setEnabled( true ); 
 //针对于debugRelease
 ```
 
-* 2、mock的依赖
+* 2、retrofit-mock的依赖
 ```
 dependencies{
     debugImplementation 'com.github.yinlingchaoliu:retrofit-mock:1.0.1'
@@ -60,7 +68,7 @@ allprojects {
 }
 ```
 
-* 2、引用aop插件
+引用aop插件
 ```
 //引入插件
 buildscript {
@@ -79,7 +87,7 @@ apply plugin: 'android-aspectjx'
 -keep class com.chaoliu.mock.** {*;}
 ```
 
-3、特别优化
+#####3、特别优化
 一般生产发版需求，
 1、不需要mock
 2、不希望修改代码
@@ -97,8 +105,8 @@ aspectjx {
 }
 ```
 
-#### 文本代码
-https://github.com/yinlingchaoliu/retrofitMock
+#####4、特别感谢
+首先特别感谢[javalong](https://www.jianshu.com/p/ef445d5e9be0),给retrofit-mock提供了好的思路
 
-#### 特别感谢
-https://www.jianshu.com/p/ef445d5e9be0
+本文代码
+https://github.com/yinlingchaoliu/retrofitMock
