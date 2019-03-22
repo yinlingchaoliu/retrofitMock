@@ -24,7 +24,7 @@ public class NetworkUtil {
                 .build();
 
         Retrofit retrofit =  new Retrofit.Builder()
-                .baseUrl( Urls.BASE_URL)
+                .baseUrl( UrlConstants.BASE_URL)
                 .addCallAdapterFactory( RxJava2CallAdapterFactory.create() )
                 .addConverterFactory( GsonConverterFactory.create( new Gson()))
                 .client(client)

@@ -8,8 +8,8 @@ import android.widget.Toast;
 import com.chaoliu.mock.annotation.SingleClick;
 import com.chaoliu.mock.core.RetrofitMock;
 import com.chaoliu.retrofitmock.mock.Api;
-import com.chaoliu.retrofitmock.mock.BaseDataBean;
-import com.chaoliu.retrofitmock.mock.IsUpdateBean;
+import com.chaoliu.retrofitmock.mock.BaseResponse;
+import com.chaoliu.retrofitmock.mock.IsUpdate;
 import com.chaoliu.retrofitmock.mock.NetworkUtil;
 
 import java.util.UUID;
@@ -40,18 +40,18 @@ public class MainActivity extends AppCompatActivity {
         RetrofitMock.setEnabled( true );
 
         NetworkUtil.getRetrofit(this).create( Api.class )
-                .getUpdateInfo().subscribe( new Observer<BaseDataBean<IsUpdateBean>>() {
+                .updateApk().subscribe( new Observer<BaseResponse<IsUpdate>>() {
             @Override
             public void onSubscribe(Disposable d) {
 
             }
 
             @Override
-            public void onNext(BaseDataBean<IsUpdateBean> dataBean) {
+            public void onNext(BaseResponse<IsUpdate> dataBean) {
 
                 if (dataBean.isSuccessful()) {
 //                    toast( dataBean.msg );
-                    IsUpdateBean updateBean = dataBean.data;
+                    IsUpdate updateBean = dataBean.data;
                     toast( updateBean.toString() );
                 }
 

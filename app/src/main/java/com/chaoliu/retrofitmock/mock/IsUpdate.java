@@ -1,14 +1,14 @@
 package com.chaoliu.retrofitmock.mock;
 
-public class IsUpdateBean {
+public class IsUpdate {
 
     /**
      * versions : 2.1.2
      * currFlag : 212
      * forceUpdate : 1
-     * content : 费率更新
-     * downloadUrl : http://app.mashangfangkuan.com/gyh_app_v2.1.2.apk
-     * releaseTime : 2019-03-21 15:50:24
+     * content :
+     * downloadUrl :
+     * releaseTime :
      * isUpdate : 2
      */
 
@@ -78,7 +78,7 @@ public class IsUpdateBean {
 
     @Override
     public String toString() {
-        return "IsUpdateBean{" +
+        return "IsUpdate{" +
                 "versions='" + versions + '\'' +
                 ", currFlag=" + currFlag +
                 ", forceUpdate=" + forceUpdate +
