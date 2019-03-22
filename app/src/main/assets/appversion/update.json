@@ -1,0 +1,13 @@
+{
+  "code": 200,
+  "msg": "处理成功",
+  "data": {
+    "versions": "2.1.2",
+    "currFlag": 212,
+    "forceUpdate": 1,
+    "content": "费率更新",
+    "downloadUrl": "http://app.mashangfangkuan.com/gyh_app_v2.1.2.apk",
+    "releaseTime": "2019-03-21 15:50:24",
+    "isUpdate": 2
+  }
+}

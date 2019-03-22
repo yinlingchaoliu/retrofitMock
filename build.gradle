@@ -1,0 +1,60 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+//        google()
+        jcenter()
+        mavenCentral()
+//        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        google()
+//        maven {
+//            name "aliyunmaven"
+//            url "http://maven.aliyun.com/nexus/content/groups/public/"
+//        }
+    }
+    dependencies {
+//        classpath fileTree(dir: 'plugins', include: ['*.jar'])
+        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'org.aspectj:aspectjtools:1.8.6'
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
+//        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.2-SNAPSHOT'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+ext {
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.2'
+}
+
+task cleanExample(type: Exec) {
+    executable = '../gradlew'
+    workingDir = project.file('hugo-example')
+    args = [ 'clean' ]
+}
+
+task assembleExample(type: Exec) {
+    executable = '../gradlew'
+    workingDir = project.file('hugo-example')
+    args = [ 'assemble' ]
+}
+
+task installExample(type: Exec) {
+    executable = '../gradlew'
+    workingDir = project.file('hugo-example')
+    args = [ 'installDebug' ]
+}
