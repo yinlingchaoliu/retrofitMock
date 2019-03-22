@@ -43,7 +43,11 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
 
     debugImplementation project(':mock')
-    releaseImplementation project(':mock-no-op')
+//    releaseImplementation project(':mock-no-op')
+
+//    debugImplementation 'com.github.yinlingchaoliu:retrofit-mock:1.0.1'
+//    releaseImplementation 'com.github.yinlingchaoliu:retrofit-mock-no-op:1.0.1'
+
 
 //     https://github.com/jgilfelt/chuck
     debugImplementation("com.readystatesoftware.chuck:library:1.1.0") {
@@ -52,6 +56,6 @@ dependencies {
     releaseImplementation "com.readystatesoftware.chuck:library-no-op:1.1.0"
 }
 
-//aspectj {
-//    enabled true
-//}
+aspectjx {
+    enabled true
+}

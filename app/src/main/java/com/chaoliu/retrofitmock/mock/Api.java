@@ -11,9 +11,11 @@ import retrofit2.http.GET;
  */
 public interface Api {
 
-//    @MOCK(value = "https://www.baidu.com", enable = true)
-    @MOCK("appversion/update.json")
+    @MOCK(value = "appversion/update.json",enable = true)
     @GET(Urls.UPDATE_INTERFACENAME)
     Observable<BaseDataBean<IsUpdateBean>> getUpdateInfo();
 
+    @MOCK(value = "https://www.baidu.com", enable = false)
+    @GET(Urls.UPDATE_INTERFACENAME)
+    Observable<BaseDataBean<IsUpdateBean>> getUpdateInfo2();
 }
