@@ -1,7 +1,5 @@
 package com.chaoliu.mock.core;
 
-import android.util.Log;
-
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,7 +12,7 @@ import retrofit2.Retrofit;
  * RetrofitMock AOP注解实现
  *
  * @author chentong
- * @date 18/3/29
+ * @date 2019/3/22
  */
 @Aspect
 public class RetrofitMock {
@@ -37,7 +35,7 @@ public class RetrofitMock {
     @Around("execution(* retrofit2.Retrofit.create(..))")
     public Object aroundJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
 
-        Log.e( TAG, "我终于hook了retrofit" );
+//        Log.e( TAG, "我终于hook了retrofit" );
 
         if (!isEnabled()) {
             return joinPoint.proceed();//执行原方法

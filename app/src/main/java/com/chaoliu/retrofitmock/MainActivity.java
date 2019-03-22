@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     @SingleClick
     void network() {
-        Toast.makeText( MainActivity.this,"network"+UUID.randomUUID(),Toast.LENGTH_SHORT ).show();
+
+        toast( "network"+UUID.randomUUID() );
 
         RetrofitMock.setEnabled( true );
 

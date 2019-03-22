@@ -1,7 +1,4 @@
 package com.chaoliu.mock.impl;
-
-import android.util.Log;
-
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,7 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
  * 防止View被连续点击,间隔时间600ms
  *
  * @author chentong
- * @date 18/3/29
+ * @date 2019/3/22
  */
 @Aspect
 public class SingleClickAspect {
@@ -20,7 +17,7 @@ public class SingleClickAspect {
 
     @Around("execution(@com.chaoliu.mock.annotation.SingleClick * *(..))")//在连接点进行方法替换
     public Object aroundJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
-        Log.e(TAG,"singleclick is ok");
+//        Log.e(TAG,"singleclick is ok");
 
         if (!isFastDoubleClick()) {
             return joinPoint.proceed();//执行原方法
@@ -31,7 +28,7 @@ public class SingleClickAspect {
     public  boolean isFastDoubleClick() {
         long time = System.currentTimeMillis();
         long timeD = time - lastClickTime;
-        if (0 < timeD && timeD < 6000) {
+        if (0 < timeD && timeD < 600) {
             return true;
         }
         lastClickTime = time;

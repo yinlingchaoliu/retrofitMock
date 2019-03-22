@@ -1,2 +1,3 @@
 include ':app'
-include ':lib-annotation'
+include ':mock'
+include ':mock-no-op'

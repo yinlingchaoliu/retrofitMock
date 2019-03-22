@@ -1,17 +1,17 @@
-apply plugin: 'com.android.library'
-//apply plugin: 'com.chaoliu.aspectj'
+//apply plugin: 'com.android.library'
+apply plugin: 'java-library'
 apply plugin: 'android-aspectjx'
 
-android{
-    compileSdkVersion 28
-
-    defaultConfig{
-        multiDexEnabled true
-    }
-}
+//android{
+//    compileSdkVersion 23
+//
+//    defaultConfig{
+//        multiDexEnabled true
+//    }
+//}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+//    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 }
 

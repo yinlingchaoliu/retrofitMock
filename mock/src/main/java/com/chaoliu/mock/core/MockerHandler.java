@@ -1,5 +1,4 @@
 package com.chaoliu.mock.core;
-import android.annotation.SuppressLint;
 import com.chaoliu.mock.annotation.MOCK;
 
 import java.io.InputStream;
@@ -15,7 +14,7 @@ import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 
-public class MockerHandler<T> implements InvocationHandler {
+final class MockerHandler<T> implements InvocationHandler {
 
     private Retrofit retrofit;
     private T api;
@@ -110,7 +109,7 @@ public class MockerHandler<T> implements InvocationHandler {
     }
 
     //读取文件
-    @SuppressLint("NewApi")
+//    @SuppressLint("NewApi")
     private String readAssets(String fileName) {
         try {
             InputStream is = this.getClass().getResourceAsStream( "/assets/" + fileName.trim() );

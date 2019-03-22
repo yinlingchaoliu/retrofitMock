@@ -12,7 +12,7 @@ import retrofit2.Response;
  * 模拟call方法 不会走真正Okhttp流程
  * @param <T>
  */
-public class MockerCall<T> implements Call<T> {
+final class MockerCall<T> implements Call<T> {
 
     private T data;
 
