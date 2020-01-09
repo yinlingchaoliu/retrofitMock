@@ -65,6 +65,11 @@ dependencies{
     debugImplementation 'com.github.yinlingchaoliu:retrofit-mock:1.0.1'
     releaseImplementation 'com.github.yinlingchaoliu:retrofit-mock-no-op:1.0.1'
 }
+
+//aop开启
+aspectjx {
+    enabled true
+}
 ```
 
 ```
